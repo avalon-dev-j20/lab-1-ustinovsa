@@ -1,6 +1,6 @@
 package ru.avalon.java.j20.labs.models;
 
-public final class Numbers {
+public final class Numbers<T> extends Number {
 
     /**
      * Скрытый конструктор, чтобы предотвратить создание
@@ -14,9 +14,9 @@ public final class Numbers {
      * @param values массив чисел
      * @return сумма элементов массива
      */
-    public static int sum(int[] values) {
-        int sum = 0;
-        for (int value : values) sum += value;
+    public static double sum(<T>[] values) {
+        sum = 0;
+        for (T : values) sum += value;
         return sum;
     }
 
@@ -79,5 +79,25 @@ public final class Numbers {
             result = min(result, values[i]);
         }
         return result;
+    }
+
+    @Override
+    public int intValue() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public long longValue() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public float floatValue() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public double doubleValue() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
