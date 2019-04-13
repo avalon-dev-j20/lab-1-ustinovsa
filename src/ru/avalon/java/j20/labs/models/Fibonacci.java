@@ -25,7 +25,7 @@ private static List<Integer> fibNums = new LinkedList<>();
     public Fibonacci(int quantity){ 
         fibNums.add(0);
         fibNums.add(1);
-        for (int i=1; i<quantity; i++){
+        for (int i=1; i<quantity-1; i++){
         fibNums.add(fibNums.get(i)+fibNums.get(i-1));
         }
     }
@@ -78,6 +78,7 @@ private static List<Integer> fibNums = new LinkedList<>();
         int sum = 0;
         for (int n:fibNums)
         sum+=n;
-        System.out.println(sum);
+        System.out.println("Sum of Fibonacci sequence of " + 
+                fibNums.size() + " including zero = " + sum);
         }
 }

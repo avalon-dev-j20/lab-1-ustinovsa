@@ -37,5 +37,8 @@ public class Task3 implements Task {
          */
         Fibonacci fib = new Fibonacci(20);
         fib.sum();
+        int sumf = 0;
+        for (int f:fib)
+            sumf+=f;
     } 
 }
