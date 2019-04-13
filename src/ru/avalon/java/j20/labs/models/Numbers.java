@@ -1,6 +1,6 @@
 package ru.avalon.java.j20.labs.models;
 
-public final class Numbers<T> extends Number {
+public final class Numbers  {
 
     /**
      * Скрытый конструктор, чтобы предотвратить создание
@@ -12,11 +12,12 @@ public final class Numbers<T> extends Number {
      * Возвращает сумму значений переданного массиа.
      *
      * @param values массив чисел
+     * @param <T> тип значений - любые числа, сравниваемые.
      * @return сумма элементов массива
      */
-    public static double sum(<T>[] values) {
-        sum = 0;
-        for (T : values) sum += value;
+    public static <T extends Number & Comparable> double sum(T[] values) {
+        double sum = 0;
+        for (T value : values) sum += value.doubleValue();
         return sum;
     }
 
@@ -25,10 +26,11 @@ public final class Numbers<T> extends Number {
      * массива чисел.
      *
      * @param values массив значений
+     * @param <T> тип значений - любые числа, сравниваемые
      * @return среднее арифметическое с точностью до типа {@code double}.
      */
-    public static double avg(int[] values) {
-        return (double) sum(values) / values.length;
+    public static <T extends Number & Comparable> double avg(T[] values) {
+        return sum(values) / values.length;
     }
 
     /**
@@ -36,20 +38,22 @@ public final class Numbers<T> extends Number {
      *
      * @param a перое значение
      * @param b второе значение
+     * @param <T> тип значений - любые числа, сравниваемые.
      * @return большее из двух значений
      */
-    public static int max(int a, int b) {
-        return a > b ? a : b;
+    public static <T extends Number & Comparable> T max(T a, T b) {
+        return a.compareTo(b) > 0 ? a : b;
     }
 
     /**
      * Выполняет поиск максимального значения в массиве.
      *
      * @param values массив значений
+     * @param <T> тип значений - любые числа, сравниваемые.
      * @return максимальное значение массива
      */
-    public static int max(int[] values) {
-        int result = values[0];
+    public static <T extends Number & Comparable> T max(T[] values) {
+        T result = values[0];
         for (int i = 1; i < values.length; i++) {
             result = max(result, values[i]);
         }
@@ -61,43 +65,27 @@ public final class Numbers<T> extends Number {
      *
      * @param a первое значение
      * @param b второе значение
+     * @param <T> тип значений - любые числа, сравниваемые.
      * @return меньшее из дух значений
      */
-    public static int min(int a, int b) {
-        return a < b ? a : b;
+    public static <T extends Number & Comparable> T  min(T a, T b) {
+        return a.compareTo(b) < 0 ? a : b;
     }
 
     /**
      * Выполняет поиск минимального значения массива.
      *
      * @param values массив значений
+     * @param <T> тип значений - любые числа, сравниваемые.
      * @return минимальное значение массива
      */
-    public static int min(int[] values) {
-        int result = values[0];
+    public static <T extends Number & Comparable> T min(T[] values) {
+        T result = values[0];
         for (int i = 1; i < values.length; i++) {
             result = min(result, values[i]);
         }
         return result;
     }
 
-    @Override
-    public int intValue() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public long longValue() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public float floatValue() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public double doubleValue() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 }
