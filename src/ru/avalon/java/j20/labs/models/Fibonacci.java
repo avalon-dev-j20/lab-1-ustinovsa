@@ -59,7 +59,7 @@ private static List<Integer> fibNums = new LinkedList<>();
          */
         @Override
         public Integer next() {
-            return fibNums.get(itPos++);
+            return fibNums.get(itPos);
         }
     }
 
