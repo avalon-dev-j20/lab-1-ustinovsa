@@ -1,5 +1,6 @@
 package ru.avalon.java.j20.labs.models;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -18,15 +19,16 @@ import java.util.List;
  *
  * @see <a href="https://ru.wikipedia.org/wiki/%D0%A7%D0%B8%D1%81%D0%BB%D0%B0_%D0%A4%D0%B8%D0%B1%D0%BE%D0%BD%D0%B0%D1%87%D1%87%D0%B8">Числа Фибоначчи</a>
  */
-public class Fibonacci implements Iterable<Integer> {
-    
-private static List<Integer> fibNums = new LinkedList<>();
+public class Fibonacci extends LinkedList {
 
+    private static LinkedList<Integer> list;
+   
     public Fibonacci(int quantity){ 
-        fibNums.add(0);
-        fibNums.add(1);
+        this.list = new LinkedList<>();
+        list.add(1);
+        list.add(1);
         for (int i=1; i<quantity-1; i++){
-        fibNums.add(fibNums.get(i)+fibNums.get(i-1));
+        list.add(list.get(i)+list.get(i-1));
         }
     }
     
@@ -48,7 +50,7 @@ private static List<Integer> fibNums = new LinkedList<>();
         int itPos = 0;
         @Override
         public boolean hasNext() {
-           return itPos < fibNums.size();
+           return itPos < list.size();
         }
 
         /**
@@ -59,7 +61,7 @@ private static List<Integer> fibNums = new LinkedList<>();
          */
         @Override
         public Integer next() {
-            return fibNums.get(itPos);
+            return list.get(itPos);
         }
     }
 
@@ -74,11 +76,11 @@ private static List<Integer> fibNums = new LinkedList<>();
         return new FibonacciIterator();
     }
     
-    public void sum (){
+    public void sum (Fibonacci fib){
         int sum = 0;
-        for (int n:fibNums)
+        for (Integer n: Fibonacci.list) 
         sum+=n;
         System.out.println("Sum of Fibonacci sequence of " + 
-                fibNums.size() + " including zero = " + sum);
+                Fibonacci.this.list.size()+" = " +  sum);
         }
 }

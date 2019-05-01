@@ -15,7 +15,7 @@ public final class Numbers  {
      * @param <T> тип значений - любые числа, сравниваемые.
      * @return сумма элементов массива
      */
-    public static <T extends Number & Comparable> double sum(T[] values) {
+    public static <T extends Number> double sum(T[] values) {
         double sum = 0;
         for (T value : values) sum += value.doubleValue();
         return sum;
@@ -29,7 +29,7 @@ public final class Numbers  {
      * @param <T> тип значений - любые числа, сравниваемые
      * @return среднее арифметическое с точностью до типа {@code double}.
      */
-    public static <T extends Number & Comparable> double avg(T[] values) {
+    public static <T extends Number> double avg(T[] values) {
         return sum(values) / values.length;
     }
 
@@ -41,7 +41,7 @@ public final class Numbers  {
      * @param <T> тип значений - любые числа, сравниваемые.
      * @return большее из двух значений
      */
-    public static <T extends Number & Comparable> T max(T a, T b) {
+    public static <T extends Number & Comparable<T>> T max(T a, T b) {
         return a.compareTo(b) > 0 ? a : b;
     }
 
@@ -52,7 +52,7 @@ public final class Numbers  {
      * @param <T> тип значений - любые числа, сравниваемые.
      * @return максимальное значение массива
      */
-    public static <T extends Number & Comparable> T max(T[] values) {
+    public static <T extends Number & Comparable<T>> T max(T[] values) {
         T result = values[0];
         for (int i = 1; i < values.length; i++) {
             result = max(result, values[i]);
@@ -68,7 +68,7 @@ public final class Numbers  {
      * @param <T> тип значений - любые числа, сравниваемые.
      * @return меньшее из дух значений
      */
-    public static <T extends Number & Comparable> T  min(T a, T b) {
+    public static <T extends Number & Comparable<T>> T  min(T a, T b) {
         return a.compareTo(b) < 0 ? a : b;
     }
 
@@ -79,7 +79,7 @@ public final class Numbers  {
      * @param <T> тип значений - любые числа, сравниваемые.
      * @return минимальное значение массива
      */
-    public static <T extends Number & Comparable> T min(T[] values) {
+    public static <T extends Number & Comparable<T>> T min(T[] values) {
         T result = values[0];
         for (int i = 1; i < values.length; i++) {
             result = min(result, values[i]);

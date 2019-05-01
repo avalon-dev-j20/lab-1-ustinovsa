@@ -24,7 +24,7 @@ public class RandomArrayFactory implements Factory<Integer[], Integer> {
     public Integer[] getInstance(Integer length) {
         Integer[] array = new Integer[length];
         for (int i = 0; i < length; i++) {
-            array[i] = random.nextInt(101);
+            array[i] = random.nextInt(100)+1;
         }
         return array;
     }
