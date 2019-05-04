@@ -10,9 +10,19 @@ import ru.avalon.java.j20.labs.models.Fibonacci;
 /**
  * Задание №3
  *
- * <p>Тема: "Изучение интерфейсов {@link Iterable} и {@link Iterator}".
+ * <p>
+ * Тема: "Изучение интерфейсов {@link Iterable} и {@link Iterator}".
  */
 public class Task3 implements Task {
+
+    public void sum(Fibonacci f) {
+        int sum = 0;
+        for (Integer n : f) {
+            sum += n;
+        }
+        System.out.println("Sum of Fibonacci sequence of "
+                + f.getSize() + " = " + sum);
+    }
 
     @Override
     public void run() {
@@ -37,14 +47,15 @@ public class Task3 implements Task {
          * 4. С использованием отладчика проверьте корректность
          *    выполнения задания.
          */
-        Fibonacci fib = new Fibonacci(10);
-        fib.sum(fib);
-        Fibonacci fib2 = new Fibonacci(20);
-        
-        Fibonacci fib3 = new Fibonacci(15);
-        fib.sum(fib2);
-        fib3.sum(fib3);
-        
-    } 
-}
 
+        Fibonacci fib = new Fibonacci(10);
+
+        Fibonacci fib2 = new Fibonacci(20);
+
+        Fibonacci fib3 = new Fibonacci(15);
+
+        sum(fib);
+        sum(fib2);
+        sum(fib3);
+    }
+}
