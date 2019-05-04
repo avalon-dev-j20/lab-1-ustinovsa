@@ -24,13 +24,30 @@ import java.util.NoSuchElementException;
 public class Fibonacci implements Iterable<Integer> {
 
     private static int quantity;
+    private final int id;
+    private final int sum;
 
     public Fibonacci(int quantity) {
+
         this.quantity = quantity;
+        this.id = quantity;
+        this.sum = sum();
+    }
+
+    public int sum() {
+        int sum = 0;
+        for (int n : this) {
+            sum += n;
+        }
+        return sum;
     }
 
     public int getSize() {
-        return quantity;
+        return id;
+    }
+
+    public int getSum() {
+        return sum;
     }
 
     /**

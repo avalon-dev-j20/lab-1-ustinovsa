@@ -14,13 +14,7 @@ import ru.avalon.java.j20.labs.models.Fibonacci;
  * Тема: "Изучение интерфейсов {@link Iterable} и {@link Iterator}".
  */
 public class Task3 implements Task {
-    public int sum(Fibonacci fib){
-        int sum = 0;
-        for (int n:fib){
-            sum+=n;
-        }
-        return sum;
-    }
+   
     @Override
     public void run() {
         /*
@@ -46,16 +40,17 @@ public class Task3 implements Task {
          */
 
         Fibonacci fib1 = new Fibonacci(10);
-        System.out.println("Sum of Fibonacci sequence of "
-                + fib1.getSize() + " = " + sum(fib1) + System.lineSeparator());
-                
+           
         Fibonacci fib2 = new Fibonacci(20);
-        System.out.println("Sum of Fibonacci sequences of "
-                + fib2.getSize() + " = " + sum(fib2) + System.lineSeparator());
-                
-        Fibonacci fib3 = new Fibonacci(15);
-        System.out.println("Sum of Fibonacci sequences of "
-                + fib3.getSize() + " = " + sum(fib3) + System.lineSeparator());
              
+        Fibonacci fib3 = new Fibonacci(15);
+        
+        System.out.println("Sum of Fibonacci sequences of "
+                + System.lineSeparator()
+                + fib1.getSize() + " = " + fib1.getSum()
+                + System.lineSeparator()
+                + fib2.getSize() + " = " + fib2.getSum()
+                + System.lineSeparator()
+                + fib3.getSize() + " = " + fib3.getSum());
     }
 }
