@@ -23,24 +23,15 @@ import java.util.NoSuchElementException;
  */
 public class Fibonacci implements Iterable<Integer> {
 
-    private int quantity;
-    private static LinkedList<Integer> list;
+    private static int quantity;
 
     public Fibonacci(int quantity) {
         this.quantity = quantity;
-        this.list = new LinkedList<>();
-        list.add(1);
-        list.add(1);
-        for (int i = 1; i < quantity - 1; i++) {
-            list.add(list.get(i) + list.get(i - 1));
-        }
     }
 
     public int getSize() {
         return quantity;
     }
-    
-    
 
     /**
      * Итератор, выполняющий обход последовательности чисел Фибоначчи.
@@ -54,11 +45,18 @@ public class Fibonacci implements Iterable<Integer> {
          * @return {@code true}, если следующее число последовательности
          * существует. В обратном случае {@code false}.
          */
+        //Переменная, хранящая позицию итератора;
         int itPos = 0;
+
+        //Переменная хранящая предпослежнее значение последовательности
+        int secondToLast = 0;
+
+        //Переменная хранящая последнее значение последовательноти
+        int last = 1;
 
         @Override
         public boolean hasNext() {
-            return itPos < list.size();
+            return itPos < quantity;
         }
 
         /**
@@ -71,7 +69,20 @@ public class Fibonacci implements Iterable<Integer> {
             if (!hasNext()) {
                 throw new NoSuchElementException();
             }
-            return list.get(itPos++);
+            int buffer;
+            itPos++;
+
+            switch (itPos) {
+                case 1:
+                    return 0;
+                case 2:
+                    return 1;
+                default:
+                    buffer = last + secondToLast;
+                    secondToLast = last;
+                    last = buffer;
+                    return last;
+            }
         }
     }
 
