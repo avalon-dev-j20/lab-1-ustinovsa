@@ -23,18 +23,16 @@ import java.util.NoSuchElementException;
  */
 public class Fibonacci implements Iterable<Integer> {
 
-    private static int quantity;
-    private final int id;
+    private int quantity;
     private final int sum;
 
     public Fibonacci(int quantity) {
 
         this.quantity = quantity;
-        this.id = quantity;
         this.sum = sum();
     }
 
-    public int sum() {
+    private int sum() {
         int sum = 0;
         for (int n : this) {
             sum += n;
@@ -43,7 +41,7 @@ public class Fibonacci implements Iterable<Integer> {
     }
 
     public int getSize() {
-        return id;
+        return quantity;
     }
 
     public int getSum() {
@@ -53,7 +51,7 @@ public class Fibonacci implements Iterable<Integer> {
     /**
      * Итератор, выполняющий обход последовательности чисел Фибоначчи.
      */
-    private static class FibonacciIterator implements Iterator<Integer> {
+    private class FibonacciIterator implements Iterator<Integer> {
 
         /**
          * Определяет, есть ли следующее значение последовательности чисел
