@@ -1,6 +1,7 @@
 package ru.avalon.java.j20.labs.tasks;
 
 import ru.avalon.java.j20.labs.Task;
+import ru.avalon.java.j20.labs.models.Point;
 
 /**
  * Задание №2.
@@ -34,5 +35,9 @@ public class Task2 implements Task {
          * 4. С использованием отладчика проверьте корректность
          *    работы программы.
          */
+    Point<Integer> pInt = new Point<>(1, 2);
+    Point<Float> pFl = new Point<>(3.14f, 2.7f);
+    float r=(float)pInt.distanceTo(pFl);
+        
     }
 }
